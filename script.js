@@ -13,12 +13,7 @@ const overlay = document.getElementById("overlay");
 const cardTitle = document.getElementById("card-title");
 const cardContent = document.getElementById("card-content");
 const cardButtons = document.getElementById("card-buttons");
-
-// Tampilkan popup saat halaman dimuat
-window.onload = function () {
-  showCard(currentCard);
-  overlay.style.display = "block";
-};
+const openCardBtn = document.getElementById("open-card-btn");
 
 // Fungsi untuk menampilkan card berdasarkan indeks
 function showCard(index) {
@@ -51,9 +46,6 @@ function showCard(index) {
     cardButtons.appendChild(yesBtn);
     cardButtons.appendChild(noBtn);
   }
-
-  // Posisikan card di tengah
-  positionCard();
 }
 
 // Fungsi untuk memposisikan card secara acak
@@ -80,6 +72,12 @@ function onNo() {
   // Pindahkan posisi card
   positionCard();
 }
+
+// Fungsi untuk membuka card saat tombol diklik
+openCardBtn.onclick = function () {
+  overlay.style.display = "block";
+  showCard(currentCard);
+};
 
 // Menutup popup ketika overlay di klik di luar card
 overlay.onclick = function (event) {

@@ -18,6 +18,7 @@
     </div>
 </div>
 
+
 <script src="script.js"></script> <!-- Link ke file JavaScript -->
 </body>
 </html>
