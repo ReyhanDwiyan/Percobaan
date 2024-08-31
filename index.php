@@ -1,24 +1,39 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Popup Card dengan PHP</title>
-    <link rel="stylesheet" href="style.css"> <!-- Link ke file CSS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Navigation</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-<!-- Overlay untuk Popup -->
-<div class="overlay" id="overlay">
-    <div class="card" id="card">
-        <h2 id="card-title">Card 1</h2>
-        <p id="card-content">Ini adalah konten untuk Card 1.</p>
-        <div class="buttons" id="card-buttons">
-            <button class="next-btn" id="next-btn">Next</button>
+    <div class="container">
+        <button id="startButton">Start</button>
+        <div id="cardsContainer" class="cards-container hidden">
+            <div class="card" id="card1">
+                <p>Ini adalah Card 1</p>
+                <button class="nextButton">Next</button>
+            </div>
+            <div class="card hidden" id="card2">
+                <p>Ini adalah Card 2</p>
+                <button class="nextButton">Next</button>
+            </div>
+            <div class="card hidden" id="card3">
+                <p>Ini adalah Card 3</p>
+                <button class="nextButton">Next</button>
+            </div>
+            <div class="card hidden" id="card4">
+                <p>Ini adalah Card 4</p>
+                <button class="choiceButton" data-choice="iya">Iya</button>
+                <button class="choiceButton" data-choice="tidak">Tidak</button>
+            </div>
+            <div class="card hidden" id="card5">
+                <p>Ini adalah Card 5</p>
+                <button class="nextButton">Next</button>
+            </div>
         </div>
     </div>
-</div>
 
-
-<script src="script.js"></script> <!-- Link ke file JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>
