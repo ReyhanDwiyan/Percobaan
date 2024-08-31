@@ -1,0 +1,59 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+/* Overlay untuk popup */
+.overlay {
+    position: fixed;
+    display: none; /* Tersembunyi secara default */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1000;
+}
+
+/* Card Popup */
+.card {
+    position: absolute;
+    background: #fff;
+    padding: 20px;
+    width: 300px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: top 0.5s, left 0.5s;
+}
+
+.card h2 {
+    margin-top: 0;
+}
+
+.buttons {
+    margin-top: 20px;
+    text-align: right;
+}
+
+.buttons button {
+    padding: 8px 16px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.next-btn {
+    background-color: #007BFF;
+    color: #fff;
+}
+
+.yes-btn {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.no-btn {
+    background-color: #dc3545;
+    color: #fff;
+}
