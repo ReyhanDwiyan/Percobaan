@@ -1,50 +1,47 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const startButton = document.getElementById("startButton");
-  const cardsContainer = document.getElementById("cardsContainer");
-  const cards = document.querySelectorAll(".card");
-  let currentCard = 0;
+let currentCardIndex = -1;
+const cards = document.querySelectorAll('.card');
+const nextButtons = document.querySelectorAll('.nextBtn');
+const yesButton = document.querySelector('.yesBtn');
+const noButton = document.querySelector('.noBtn');
+const startButton = document.getElementById('startBtn');
 
-  startButton.addEventListener("click", function () {
-      startButton.style.display = "none";
-      cardsContainer.classList.remove("hidden");
-      showCard(currentCard);
-  });
+function showCard(index) {
+    cards.forEach((card, i) => {
+        card.classList.remove('show');
+        if (i === index) {
+            card.classList.add('show');
+        }
+    });
+}
 
-  document.querySelectorAll(".nextButton").forEach(button => {
-      button.addEventListener("click", function () {
-          if (currentCard < cards.length - 1) {
-              hideCard(currentCard);
-              currentCard++;
-              showCard(currentCard);
-          }
-      });
-  });
-
-  document.querySelectorAll(".choiceButton").forEach(button => {
-      button.addEventListener("click", function () {
-          const choice = this.getAttribute("data-choice");
-          if (choice === "iya") {
-              hideCard(currentCard);
-              currentCard++;
-              showCard(currentCard);
-          } else if (choice === "tidak") {
-              moveCardRandomly("card4");
-          }
-      });
-  });
-
-  function showCard(index) {
-      cards[index].classList.remove("hidden");
-  }
-
-  function hideCard(index) {
-      cards[index].classList.add("hidden");
-  }
-
-  function moveCardRandomly(cardId) {
-      const card = document.getElementById(cardId);
-      const randomX = Math.floor(Math.random() * 300) - 150; // range between -150 and 150
-      const randomY = Math.floor(Math.random() * 300) - 150; // range between -150 and 150
-      card.style.transform = `translate(${randomX}px, ${randomY}px)`;
-  }
+startButton.addEventListener('click', () => {
+    currentCardIndex = 0;
+    showCard(currentCardIndex);
+    startButton.style.display = 'none';
 });
+
+nextButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+        if (currentCardIndex < cards.length - 1) {
+            currentCardIndex++;
+            showCard(currentCardIndex);
+        }
+    });
+});
+
+yesButton.addEventListener('click', () => {
+    currentCardIndex++;
+    showCard(currentCardIndex);
+});
+
+noButton.addEventListener('click', () => {
+    const randomX = Math.floor(Math.random() * 80) + 'vw';
+    const randomY = Math.floor(Math.random() * 80) + 'vh';
+    document.getElementById('card-4').style.position = 'absolute';
+    document.getElementById('card-4').style.left = randomX;
+    document.getElementById('card-4').style.top = randomY;
+    showCard(3);
+});
+
+// Show the first card initially
+showCard(currentCardIndex);

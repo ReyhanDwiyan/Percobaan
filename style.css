@@ -5,35 +5,48 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
+    background-color: #f0f0f0;
 }
 
 .container {
     text-align: center;
 }
 
-#startButton {
+.card {
+    display: none;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card.show {
+    display: block;
+}
+
+.card img {
+    width: 100px;
+    height: 100px;
+}
+
+button.nextBtn, button.yesBtn, button.noBtn, #startBtn {
+    margin-top: 20px;
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
 }
 
-.cards-container {
-    margin-top: 20px;
+button.nextBtn:hover, button.yesBtn:hover, button.noBtn:hover, #startBtn:hover {
+    background-color: #0056b3;
 }
 
-.card {
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    margin-bottom: 20px;
+#startBtn {
+    display: block;
+    margin: 0 auto 20px auto;
 }
 
-.hidden {
-    display: none;
-}
-
-button {
-    padding: 10px 20px;
-    margin-top: 10px;
-    cursor: pointer;
-}
